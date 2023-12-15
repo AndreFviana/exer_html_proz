@@ -1,0 +1,29 @@
+*{
+    margin:7px;
+    padding:0px;
+    box-sizing: border-box;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgb(225, 236, 248);
+}
+
+header, nav{
+    background-color: rgb(16, 210, 210);
+    display: flex;
+    align-items:flex-start;
+    flex-direction: column;
+    
+}
+header nav ul{
+    list-style: none;
+}
+header  .logo, h1{
+background-color: blueviolet;
+}
+body{
+    align-items: center;
+    background-color: rgb(16, 210, 210);
+    align-items: center;
+}
+footer , ol{
+    list-style: none;
+}
