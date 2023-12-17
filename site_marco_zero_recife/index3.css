@@ -3,27 +3,36 @@
     padding:0px;
     box-sizing: border-box;
     font-family:'Maven Pro',sans-serif;
-    background-color: rgb(225, 236, 248);
+    text-align: center;
+    /*background-color: rgba(225, 236, 248,0.3);*/
 }
+
 @import url('https://fonts.googleapis.com/css2?family=Kalnia:wght@500&family=Libre+Baskerville&family=Maven+Pro&family=Mina&display=swap');
+
+body{
+    background-image: url("./img_recife/Recife\ Antigo_\ roteiro\ de\ cultura\ e\ agito\ pelo\ centro\ histórico.jfif");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
+    color:#222222;
+    /*background-color: rgb(16, 210, 210);*/
+}
 header, nav{
-    background-color: rgb(16, 210, 210);
+    /*background-color: rgba(16, 210, 210,0.5);*/
     display: flex;
-    align-items:flex-start;
+    align-items:center;
     flex-direction: column;
-    
 }
 header nav ul{
     list-style: none;
 }
 header  .logo, h1{
-background-color: blueviolet;
+    background-color: rgba(175, 0, 0, 0.5);
+    /*background-color: blueviolet;*/
+
 }
-body{
-    align-items: center;
-    background-color: rgb(16, 210, 210);
-    align-items: center;
-}
+
 footer , ol{
     list-style: none;
 }
