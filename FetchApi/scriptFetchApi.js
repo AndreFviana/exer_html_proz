@@ -60,8 +60,29 @@ return res.json()
 }
 
 // 3. Eventos
-btnUsuario.addEventListener('click', gerarUsuario)
+btnUsuario.addEventListener('click',(evento) => gerarPost(evento))
 
+//utilizando outra api para gerar posts, como em redes sociais
+const postTitle = document.getElementById('post-title')
+const postBody = document.getElementById('post-body')
+const btnPost = document.getElementById('btn-post')
+const postConteiner = document.getElementById('posts-container')
 
+function gerarPost(evento){
+evento.preventDefault()
+
+fetch('https://jsonplaceholder.typicode.com/posts',{
+    method: 'post',
+    headers:{
+        "Content-Type": "application/json",
+    },
+    body: {
+
+    }
+})
+    .then((res)=> res.json())
+}
+
+btnPost.addEventListener('click',gerarPost)
 
    
