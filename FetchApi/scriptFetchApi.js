@@ -4,6 +4,7 @@ const btnUsuario = document.getElementById('btn-usuario')
 const usuariosContainer = document.getElementById('usuarios-container')
 const helperTextUsuario = document.getElementById('helper-text-usuario')
 
+
 // 2. Funções
 function gerarUsuario(){
    /*MANEIRA DIDÁTICA
@@ -25,7 +26,7 @@ return res.json()
    helperTextUsuario.innerText = 'Carregando...'
   
 
-    fetch(' https://random-data-api.com/api/v2/userse')
+     fetch(' https://random-data-api.com/api/v2/users')
     .then((res)=> res.json())
     .then((data)=> {
         const usuario = document.createElement('div')
@@ -45,8 +46,9 @@ return res.json()
             .addEventListener('click',()=>{
                 usuariosContainer.removeChild(usuario)
             })
+            // se quisermos que o ultimo usuario adicionado apareça na parte de cima, usamos o PREPEND, e não o APPENDECHILD
             usuariosContainer.appendChild(usuario)
-             helperTextUsuario.innerText = ''
+            helperTextUsuario.innerText = ''
             console.log(data)
         
     })
@@ -60,7 +62,8 @@ return res.json()
 }
 
 // 3. Eventos
-btnUsuario.addEventListener('click',(evento) => gerarPost(evento))
+btnUsuario.addEventListener('click',gerarUsuario)
+
 
 //utilizando outra api para gerar posts, como em redes sociais
 const postTitle = document.getElementById('post-title')
@@ -70,19 +73,32 @@ const postConteiner = document.getElementById('posts-container')
 
 function gerarPost(evento){
 evento.preventDefault()
+postTitle.value
+postBody.value
 
+const jsonBody = JSON.stringify({
+    titulo: postTitle.value ,
+    mensagem: postBody.value
+})
+console.log(jsonBody)
 fetch('https://jsonplaceholder.typicode.com/posts',{
     method: 'post',
     headers:{
         "Content-Type": "application/json",
     },
-    body: {
-
-    }
+    body: jsonBody
 })
     .then((res)=> res.json())
+    .then((data)=>{
+        console.log(data)
+        const post = document.createElement('div')
+        post.innerHTML = `
+        <h3>${data.id} - ${data.titulo}</h3>
+        <p>${data.mensagem}</p>
+        `
+//para que o ultimo post aprecça no topo, usamos o PREPEND, e não o APPENCHILD.
+        postConteiner.prepend(post)
+    })
 }
 
 btnPost.addEventListener('click',gerarPost)
-
-   
